@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Registro-Mascota.css"> 
+    <title>Registro de Mascotas</title>
+</head>
+<body>
+    <nav class="barra-nav">
+        <ul class="barra-link">
+            <li><a href="../HTML/Pagina-Principal.html" class="barra-link-estilo">Inicio</a></li>
+            <li><a href="Registro-Mascota.html" class="barra-link-estilo activa">Registro de Mascotas</a></li>
+            <li><a href="Servicios.html" class="barra-link-estilo">Servicios</a></li>
+            <li><a href="contacto.html" class="barra-link-estilo">Contáctanos</a></li>
+            <li><a href="Login.html" class="barra-link-estilo">Login</a></li>
+            <li><a href="user.php" class="barra-link-estilo">Mi Cuenta</a></li>
+        </ul>
+    </nav>
+
+    <div class="titulo">
+        <h1 class="titulo-registro">Registro de Mascotas</h1>
+    </div>
+
+    <div class="box">
+        <form class="box-formulario" action="../PHP/procesar_mascota.php" method="POST" enctype="multipart/form-data">
+            
+            <div>
+                <label for="nombre">Nombre de la mascota</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Firulais">
+            </div>
+            <div>
+                <label for="edad">Edad (Años)</label>
+                <input type="number" id="edad" name="edad" required placeholder="Ej: 3">
+            </div>
+
+            <div>
+                <label for="tipo">Tipo de mascota</label>
+                <select id="tipo" name="tipo" onchange="actualizarOpciones()" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Perro">Perro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Ave">Ave</option>
+                    <option value="Reptil">Reptil</option>
+                </select>
+            </div>
+            <div>
+                <label for="tamano">Tamaño</label>
+                <select id="tamano" name="tamano">
+                        <option value="">Selecciona primero el tipo</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="raza">Raza</label>
+                <select id="raza" name="raza" required>
+                    <option value="">Selecciona primero el tipo y tamaño</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="genero">Género</label>
+                <select id="genero" name="genero" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+            </div>
+            
+            <div class="full-width">
+                <label for="esterilizado">¿Está esterilizado?</label>
+                <select id="esterilizado" name="esterilizado" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="full-width">
+                <label>Vacunas (Selecciona varias):</label>
+                <div id="contenedorVacunas">
+                    <p style="font-size: 0.9em; color: grey;">Selecciona primero el tipo de mascota</p>
+                </div>
+            </div>
+
+            <div class="full-width">
+                <label for="ruac">RUAC</label>
+                <input type="text" id="ruac" name="ruac"  placeholder="Ej: RUAC-12345-ABCDE" maxlength="20">
+            </div>
+
+            <div>
+                <label for="chip">¿Tiene chip?</label>
+                <select id="chip" name="chip" onchange="mostrarCamposChip()" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div id="chipDatos" style="display:none;" class="full-width">
+                <div class="chip-grid">
+                    <div>
+                        <label for="protocolo_chip">Protocolo del Microchip:</label>
+                        <select name="protocolo_chip" id="protocolo_chip" onchange="mostrarChips()">
+                            <option value="">Selecciona el protocolo</option>
+                            <option value="ISO">ISO (FDX-B)</option>
+                            <option value="AVID">AVID (FDX-A)</option>
+                            <option value="ICAR">ICAR</option>
+                        </select>
+                    </div>
+
+                    <div id="camposISO" class="chip-details" style="display:none;">
+                        <p class="chip-subtitle">Configuración ISO</p>
+                        <div class="grid-interno">
+                            <div><label>ID Chip:</label><input type="number" name="id_chip"></div>
+                            <div><label>País (0-16383):</label><input type="number" name="pais_chip" min="0" max="16383"></div>
+                            <div><label>ID Animal (Max 38 bits):</label><input type="number" name="id_animal"></div>
+                            <div><label>Contador (0-7):</label><input type="number" name="contador" min="0" max="7"></div>
+                            <div><label>Info Usuario (0-31):</label><input type="number" name="info_usr" min="0" max="31"></div>
+                            <div><label>Futuro Uso (0-7):</label><input type="number" name="futuro" min="0" max="7"></div>
+                        </div>
+                    </div>
+
+                    <div id="camposAVID" class="chip-details" style="display:none;">
+                        <p class="chip-subtitle">Configuración AVID</p>
+                        <div class="grid-interno">
+                            <div><label>ID Animal AVID:</label><input type="number" name="id_chip"></div>
+                            <div><label>Código Rebaño:</label><input type="number" name="rebano"></div>
+                            <div><label>ID Animal Técnico:</label><input type="number" name="id_animal"></div>
+                            <div><label>Reservados (0-63):</label><input type="number" name="reservados" min="0" max="63"></div>
+                            <div><label>Control Adicional (0-1):</label><input type="number" name="control_ad" min="0" max="1"></div>
+                            <div><label>Seguridad (0-255):</label><input type="number" name="seguridad" min="0" max="255"></div>
+                        </div>
+                   </div>
+
+                   <div id="camposICAR" class="chip-details" style="display:none;">
+                        <p class="chip-subtitle">Configuración ICAR</p>
+                        <div class="grid-interno">
+                            <div><label>ID Animal ICAR:</label><input type="number" name="id_chip"></div>
+                            <div><label>Código Control:</label><input type="number" name="cod_control"></div>
+                            <div><label>ID Animal Técnico:</label><input type="number" name="id_animal"></div>
+                            <div><label>Reservados (0-63):</label><input type="number" name="reservados" min="0" max="63"></div>
+                            <div><label>Valor ICAR (0-1):</label><input type="number" name="val_icar" min="0" max="1"></div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+
+            <div class="full-width">
+                <label for="foto">Foto de la mascota (.PNG)</label>
+                <input type="file" id="foto" name="foto" accept="image/*">
+            </div>  
+
+            <div class="full-width">
+                <label for="dueño">Nombre del dueño</label>
+                <input type="text" id="dueño" name="dueño" required placeholder="Nombre completo">
+            </div>
+
+            <button type="submit" class="sig-pagina">Registrar Mascota</button>
+        </form>
+    </div>
+    
+    <script src="../Script/razas-perros.js"></script>
+</body>
+</html>

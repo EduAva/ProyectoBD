@@ -1,0 +1,132 @@
+body {
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #F5E9D7;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+}
+a {
+    text-decoration: none;
+}
+.barra-nav {
+    background-color: #ffffff;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 100;
+}
+.barra-link {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
+.barra-link-estilo {
+    padding: 10px 20px;
+    display: block;
+    border-radius: 25px; 
+    margin-left: 10px;
+    transition: all 0.3s ease;
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+}
+.barra-link a:hover,
+.barra-link-estilo:hover {
+    background-color: #F9A66C;
+    color: white;
+    transform: translateY(-2px); 
+}
+.contenedor-centrado {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.login-caja {
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    text-align: center;
+}
+h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2rem;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 0.95rem;
+}
+input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FAFAFA;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
+}
+input:focus {
+    outline: none;
+    border-color: #F9A66C;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(249, 166, 108, 0.2);
+}
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #F9A66C;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #e08e55;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(249, 166, 108, 0.3);
+}
+.registro-link {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #666;
+}
+.registro-link p {
+    display: inline;
+    margin: 0;
+}
+.registro-link a {
+    color: #F9A66C;
+    font-weight: 700;
+    margin-left: 5px;
+}
+.registro-link a:hover {
+    text-decoration: underline;
+}

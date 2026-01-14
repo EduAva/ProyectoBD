@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Reservacion.css">
+    <link rel="stylesheet" href="../CSS/contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Contáctanos - Garritas Felices</title>
+</head>
+    <body>
+        <nav class="barra-nav">
+            <ul class="barra-link">
+                <li><a href="../HTML/Pagina-Principal.html" class="barra-link-estilo">Inicio</a></li>
+                <li><a href="Registro-Mascota.html" class="barra-link-estilo">Registro de Mascotas</a></li>
+                <li><a href="Servicios.html" class="barra-link-estilo">Servicios</a></li>
+                <li><a href="contacto.html" class="barra-link-estilo" style="background-color: #F9A66C; color: white;">Contáctanos</a></li>
+                <li><a href="Login.html" class="barra-link-estilo">Login</a></li>
+                <li><a href="user.php" class="barra-link-estilo" >Mi Cuenta</a></li>
+            </ul>
+        </nav>
+        
+        <div class="titulo">
+            <h1 class="titulo-registro">Ponte en Contacto</h1>
+        </div>
+
+        <div class="box">
+            <form class="box-formulario" action="Exito.html"> <div class="full-width">
+                    <h3 class="seccion-titulo">Envíanos un Mensaje</h3>
+                    <p style="margin-top:0; color:#666;">¿Tienes dudas sobre el hospedaje? Escríbenos.</p>
+                </div>
+
+                <div>
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                </div>
+                <div>
+                    <label for="email">Correo Electrónico</label>
+                    <input type="text" id="email" name="email" required placeholder="ejemplo@correo.com">
+                </div>
+
+                <div>
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" name="telefono" placeholder="55 1234 5678">
+                </div>
+                <div>
+                    <label for="asunto">Asunto</label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="presupuesto">Cotización de Hospedaje</option>
+                        <option value="disponibilidad">Consultar Disponibilidad</option>
+                        <option value="visita">Agendar Visita al Hotel</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="full-width">
+                    <label for="mensaje">Tu Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Hola, me gustaría saber si tienen espacio para..."></textarea>
+                </div>
+
+                <button type="submit" class="sig-pagina">Enviar Mensaje</button>
+
+                <div class="full-width" style="margin-top: 30px;">
+                    <h3 class="seccion-titulo">Visítanos</h3>
+                </div>
+
+                <div class="info-contacto">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Nte. 72 3525, La Joya, Gustavo A. Madero, 07890 Ciudad de México, CDMX</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+52 55 1234 5678</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>contacto@garritasfelices.com</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun - Dom: 9:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
+
+                <div class="mapa-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28473.64305899419!2d-99.11172004064777!3d19.439640378002387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f9ff4062a6b3%3A0xb0da7f19724c300c!2sLA%20CASA%20DE%20LAS%20MASCOTAS*21*21!5e0!3m2!1ses!2smx!4v1764183227435!5m2!1ses!2smx" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+            </form>
+        </div>
+    </body>
+</html>

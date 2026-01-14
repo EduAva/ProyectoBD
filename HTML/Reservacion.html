@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Reservacion.css">
+    <title>Reservación de Hospedaje</title>
+</head>
+    <body>
+        <nav class="barra-nav">
+            <ul class="barra-link">
+                <li><a href="../HTML/Pagina-Principal.html" class="barra-link-estilo">Inicio</a></li>
+                <li><a href="Registro-Mascota.html" class="barra-link-estilo" style="background-color: #F9A66C; color: white;">Registro de Mascotas</a></li>
+                <li><a href="Servicios.html" class="barra-link-estilo">Servicios</a></li>
+                <li><a href="Contacto.html" class="barra-link-estilo">Contáctanos</a></li>
+                <li><a href="Login.html" class="barra-link-estilo">Login</a></li>
+                <li><a href="user.php" class="barra-link-estilo" >Mi Cuenta</a></li>
+            </ul>
+        </nav>
+        
+        <div class="titulo">
+            <h1 class="titulo-registro">Reservar Hospedaje</h1>
+        </div>
+
+        <div class="box">
+            <form class="box-formulario" action="../PHP/procesar_reserva.php" method="POST">
+                
+                <div class="full-width">
+                    <h3 class="seccion-titulo">Detalles del Alojamiento</h3>
+                </div>
+
+                <div>
+                    <label for="fecha_entrada">Fecha de Entrada</label>
+                    <input type="date" id="fecha_entrada" name="fecha_entrada" required>
+                </div>
+                <div>
+                    <label for="fecha_salida">Fecha de Salida</label>
+                    <input type="date" id="fecha_salida" name="fecha_salida" required>
+                </div>
+
+                <div class="full-width">
+                    <label for="habitacion">Tipo de Habitación</label>
+                    <select id="habitacion" name="habitacion" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="estandar">Suite Estándar ($200/noche)</option>
+                        <option value="vip">Suite VIP con Cámara ($350/noche)</option>
+                        <option value="patio">Estancia en Patio Común ($150/noche)</option>
+                    </select>
+                </div>
+
+                <div class="full-width">
+                    <h3 class="seccion-titulo">Alimentación y Cuidados</h3>
+                </div>
+
+                <div class="full-width">
+                    <label>Tipo de Alimentación</label>
+                    <select id="comida_tipo" name="comida_tipo" onchange="mostrarDetallesComida()" required>
+                        <option value="propia">Llevo mi propia comida</option>
+                        <option value="hotel">Deseo comida del hotel (Costo extra)</option>
+                    </select>
+                </div>
+                
+                <div class="full-width" id="instrucciones_comida">
+                    <label for="detalles_comida">Instrucciones (Cantidad y horarios)</label>
+                    <input type="text" id="detalles_comida" name="detalles_comida" placeholder="Ej: 1 taza en la mañana y 1 en la noche">
+                </div>
+
+                <div>
+                    <label for="sociable">¿Es sociable con otros?</label>
+                    <select id="sociable" name="sociable">
+                        <option value="si">Sí, es muy amigable</option>
+                        <option value="no">No, prefiere estar solo</option>
+                        <option value="depende">Depende</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="medicamento">¿Requiere Medicamento?</label>
+                    <select id="medicamento" name="medicamento">
+                        <option value="no">No</option>
+                        <option value="si">Sí (Traer receta)</option>
+                    </select>
+                </div>
+
+                <div class="full-width">
+                    <label>Servicios Adicionales:</label>
+                    <div id="contenedorVacunas"> <div style="display:flex; align-items:center; margin-bottom:10px;">
+                            <input type="checkbox" id="srv_bano" name="servicios[]" value="bano">
+                            <label for="srv_bano" style="margin:0;">Baño a la salida (+$200)</label>
+                        </div>
+                        <div style="display:flex; align-items:center; margin-bottom:10px;">
+                            <input type="checkbox" id="srv_paseo" name="servicios[]" value="paseo">
+                            <label for="srv_paseo" style="margin:0;">Paseo individual extra 30min (+$100)</label>
+                        </div>
+                        <div style="display:flex; align-items:center;">
+                            <input type="checkbox" id="srv_transporte" name="servicios[]" value="transporte">
+                            <label for="srv_transporte" style="margin:0;">Transporte a domicilio (+$150)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="full-width">
+                    <label for="emergencia">Contacto de Emergencia</label>
+                    <input type="text" id="emergencia" name="emergencia" placeholder="Nombre" required>
+                    <input type="tel" id="telefono_emergencia" name="telefono_emergencia" placeholder="Teléfono" required>
+                </div>
+
+                <div class="full-width">
+                    <label for="notas">Notas Especiales</label>
+                    <textarea id="notas" name="notas" rows="3" placeholder="Ej: Le da miedo la pirotecnia, es alérgico al pollo..."></textarea>
+                </div>
+
+                <button type="submit" class="sig-pagina">Confirmar Reservación</button>
+            </form>
+        </div>
+    </body>
+</html>

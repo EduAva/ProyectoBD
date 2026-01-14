@@ -1,0 +1,105 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.tarjeta-exito {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    animation: aparecer 0.8s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icono-check {
+    width: 80px;
+    height: 80px;
+    background-color: #a8e6cf;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px auto;
+}
+
+.checkmark {
+    font-size: 40px;
+    color: #27ae60;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.numero-orden {
+    background-color: #f8fafc;
+    border: 2px dashed #cbd5e0;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: #4a5568;
+    margin-bottom: 30px;
+}
+
+.botones {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.btn-primario {
+    background-color: #F9A66C;
+    color: white;
+}
+
+.btn-primario:hover {
+    background-color: #e08e55;
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: transparent;
+    border: 2px solid #ddd;
+    color: #666;
+}
+
+.btn-secundario:hover {
+    border-color: #F9A66C;
+    color: #F9A66C;
+}

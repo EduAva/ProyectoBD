@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <nav class="barra-nav">
+        <ul class="barra-link">
+            <li><a href="Pagina-Principal.html" class="barra-link-estilo">Inicio</a></li>
+            <li><a href="Registro-Mascota.html" class="barra-link-estilo">Registro de Mascotas</a></li>
+            <li><a href="Servicios.html" class="barra-link-estilo">Servicios</a></li>
+            <li><a href="contacto.html" class="barra-link-estilo">Contáctanos</a></li>
+            <li><a href="Login.html" class="barra-link-estilo"  style="background-color: #F9A66C; color: white;">Login</a></li>
+            <li><a href="user.php" class="barra-link-estilo" >Mi Cuenta</a></li>
+        </ul>
+    </nav>
+    <h1>
+        CREAR CUENTA
+    </h1>
+    <form action="../PHP/Register.php" method="post">
+        <legend>DATOS GENERLAES</legend>
+        <div class="fila1">
+            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellidop" name="apellidop" placeholder="Apellido Paterno" required>
+            <input type="text" id="apellidom" name="apellidom" placeholder="Apellido Materno" required>
+        </div>
+        <div class="fila2">
+        <input type="date" id="edad" name="edad" required>
+        </div>
+        <legend>DIRECCION</legend>
+        <div class="fila-entidad1">
+                <input type="text" id="cp" name="cp" placeholder="Código Postal" class="fila-entidad2" required>
+            <input type="text" id="entidad" name="entidad" placeholder="Entidad Federativa" class="fila-entidad2" required readonly>
+        </div>
+        <div class="fila-direccion1">
+            <input type="text" id="municipio" name="municipio" placeholder="Municipio" readonly>
+            
+            <select id="col" name="col">
+                <option selected>Colonia</option>
+            </select>
+        </div>
+        <div class="fila-direccion2">
+            <input type="text" id="calle" name="calle" placeholder="Calle" required>
+            <input type="text" id="noe" name="noe" placeholder="Número Exterior" required>
+            <input type="text" id="noi" name="noi" placeholder="Número Interior">
+        </div>
+        <legend>CUENTA</legend>
+        <div class="fila-cuenta1">
+            <input type="email" id="correo" name="correo" placeholder="Correo Electrónico" required>
+            <input type="tel" id="phone" name="phone" placeholder="55 1234 5678" oninput="this.value = this.value.replace(/[^0-9]/g, '')" title="Por favor ingresa los 10 dígitos de tu número" required>
+        </div>
+        <div class="fila-cuenta2">
+            <input type="password" id="password" name="password" placeholder="Contraseña" minlength="8" maxlength="12" required>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmar Contraseña" required>
+            <span id="e_pass" style= "color: red;font-size: 12px;display: none;">Las contraseñas no coinciden</span>
+        </div>
+        <button id="btn-registrarse" type="submit" class="btn-registrarse">Registrarse</button>
+    </form>
+    <script src="../Script/register.js"></script>
+</body>
+</html>
