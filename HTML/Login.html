@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/Login.css">
+    <link rel="stylesheet" href="../CSS/Login.css"> 
     <title>Iniciar Sesión</title>
 </head>
 <body>
@@ -22,19 +22,19 @@
     <div class="contenedor-centrado">
         <div class="login-caja">
             <h1>Iniciar Sesión</h1>
-            <form action="../PHP/login.php" method="post" id="loginForm">
+            <form id="loginForm">
                 <div class="input-group">
                     <label for="email">Ingresa Correo</label>
-                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required class="email" name>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required class="email">
                 </div>
                 
                 <div class="input-group">
                     <label for="password">Ingresa tu Contraseña</label>
-                    <input type="password" id="password" name= "password" placeholder="••••••••" required minlength="8" maxlength="12">
-                    <div id="mensaje-error" style="color: red; margin-top: 10px; display: none;"></div>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                    <div id="mensaje-error" style="color: red; margin-top: 10px; display: none; font-size: 0.9em; font-weight: bold;"></div>
                 </div>
 
-                <button type="submit">Entrar</button>
+                <button type="submit" id="btn-submit">Entrar</button>
                 
                 <div class="registro-link">
                     <p>¿No tienes cuenta?</p>
@@ -43,6 +43,54 @@
             </form>
         </div>
     </div>
-    <script src="../Script/login.js" ></script>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue sola
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('mensaje-error');
+            const btn = document.getElementById('btn-submit');
+
+            // Feedback visual: Desactivar botón mientras carga
+            btn.disabled = true;
+            btn.innerText = "Verificando...";
+            errorDiv.style.display = 'none';
+
+            // Crear los datos para enviar
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('password', password);
+
+            // TU URL DE RENDER AQUÍ:
+            fetch('https://proyectobd-80ms.onrender.com/index.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // SI EL LOGIN ES CORRECTO:
+                    alert('¡Bienvenido!'); // Opcional
+                    // Redirige a donde quieras (ej. user.php o index.html)
+                    window.location.href = 'user.php'; 
+                } else {
+                    // SI HAY ERROR (Contraseña mal, usuario no existe, etc):
+                    errorDiv.textContent = data.message;
+                    errorDiv.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerText = "Entrar";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                errorDiv.textContent = "Error al conectar con el servidor.";
+                errorDiv.style.display = 'block';
+                btn.disabled = false;
+                btn.innerText = "Entrar";
+            });
+        });
+    </script>
 </body>
 </html>
