@@ -13,7 +13,7 @@ header('Content-Type: application/json');
 
 try {
     // Usamos las variables que obtuvimos arriba
-    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;sslmode=require";
     $pdo = new PDO($dsn, $user, $pass);
     // Configuración para que PDO lance errores reales si algo falla
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
